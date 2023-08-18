@@ -110,5 +110,5 @@ anta exec snapshot
 Run command on specific device
 
 ```bash
-anta debug run-cmd -c "show lldp neighbors" --device EOS20
+anta debug run-cmd -c "show lldp neighbors" --device s1-spine1
 ```
