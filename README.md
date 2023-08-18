@@ -10,7 +10,7 @@ Using the Dual DC ATD Lab, demonstrate how AVD is used to build Site 2 L2LS DC. 
 
 Start a Fresh Dual DC ATD Lab
 
-Clone my Forked Repo to ATD Environment
+Clone Demo Repo to ATD Environment
 
 ```bash
 cd labfiles
@@ -68,4 +68,10 @@ Watch tasks and containers get built in CVP
 
 Execute Tasks via CC.
 
+Show nodes moved to new containers and have configlets attached.
 
+## Reset Lab - Move Site 2 nodes to undefined container
+
+```bash
+ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
+```
