@@ -1,0 +1,8 @@
+anta_inventory:
+  hosts:
+  - host: 172.31.0.30
+    name: EOS20
+    tags: ['fabric', 'spine', 'lab']
+  - host: 172.31.0.31
+    name: EOS21
+    tags: ['fabric', 'spine', 'lab']

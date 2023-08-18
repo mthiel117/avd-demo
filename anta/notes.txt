@@ -1,0 +1,47 @@
+make build
+   10  pip install anta
+   12  pip list | grep anta
+   13  which anta
+   15  cd
+   17  pwd
+   18  cd .pyenv
+   19  cd /projects
+   20  ls -l
+   22  export PATH=$PATH:/home/admin/.local/bin
+   23  echo $PATH
+   26  anta --username admin --password admin -i inventory.yml
+   27  anta --username admin --password admin -i inventory.yml nrfu
+   29  anta nrfu --username admin --password admin -i inventory.yml -c test-catalog.yml
+   30  anta --help
+   31  anta --username admin --password admin -i inventory.yml nrfu -c test-catalog.yml
+   32  anta nrfu --help
+   34  anta nrfu -c test-catalog.yml --username admin --password admin
+   35  anta nrfu -c test-catalog.yml
+   36  anta --username admin nrfu -c test-catalog.yml
+   37  anta --username admin nrfu -c test-catalog.yml -i inventory.yml
+   38  anta --username admin --inventory inventory.yml nrfu -c test-catalog.yml
+   39  anta --username admin --password admin --inventory inventory.yml nrfu -c test-catalog.yml
+   41  anta --username admin --password admin --inventory inventory.yml nrfu -c test-catalog.yml text
+   43  ardl
+   44  pip install ardl
+   45  anta debug run-cmd "show lled neighbors"
+   46  anta debug run-cmd "show lled neighbors" --username admin
+   47  anta --username admin --password admin debug run-cmd "show lldp neighbors"
+   48  anta --username admin --password admin -i inventory.yml debug run-cmd "show lldp neighbors"
+   49  anta --username admin --password admin -i inventory.yml debug run-cmd -c "show lldp neighbors"
+   50  anta --username admin --password admin -i inventory.yml debug run-cmd -c "show lldp neighbors" --device EOS20
+   52  source anta.dev
+   54  anta
+   55  anta exec snapshot -c network-tests/snapshot.yml
+   57  anta
+   59  anta get tags
+   60  anta get --help
+   61  anta get inventory
+   63  env
+   65  anta exec --help
+   66  anta exec snapshot --help
+   70  anta --username admin --password admin --inventory inventory.yml nrfu -c test-catalog.yml table
+   75  source anta.env
+   76  echo $ANTA_EXEC_SNAPSHOT_OUTPUT
+   77  anta exec snapshot -c snapshot.yml
+   78  history
