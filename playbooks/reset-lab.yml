@@ -21,6 +21,12 @@
         parentContainerName: ""
 
   tasks:
+
+    - name: Import Global Vars
+      ansible.builtin.include_vars: "{{ item }}"
+      with_items:
+        - "../global_vars/global_dc_vars.yml"
+
     - name: remove device
       arista.cvp.cv_device_v3:
           devices: '{{CVP_DEVICES}}'
