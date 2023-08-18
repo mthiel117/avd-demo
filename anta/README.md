@@ -17,12 +17,6 @@ https://www.anta.ninja/
 pip install anta
 ```
 
-### Add ANTA to PATH
-
-```bash
-export PATH=$PATH:/home/admin/.local/bin
-```
-
 ### Create ANTA Inventory File (inventory.yml)
 
 Sample
@@ -30,12 +24,15 @@ Sample
 ```text
 anta_inventory:
   hosts:
-  - host: 172.31.0.30
-    name: EOS20
-    tags: ['fabric', 'spine', 'lab']
-  - host: 172.31.0.31
-    name: EOS21
-    tags: ['fabric', 'spine', 'lab']
+##########################################
+# ATD Site 1 Spine and Leafs
+##########################################
+  - host: 192.168.0.10
+    name: s1-spine1
+    tags: ['fabric', 'spine']
+  - host: 192.168.0.11
+    name: s1-spine2
+    tags: ['fabric', 'spine']
 ```
 
 ### Create Test Catalog (test-catalog.yml)
@@ -55,17 +52,6 @@ anta.tests.configuration:
   - VerifyZeroTouch: # Verifies ZeroTouch is disabled.
   - VerifyRunningConfigDiffs:
 
-anta.tests.routing.bgp:
-  - VerifyBGPIPv4UnicastCount:
-      number: 1
-      template_params:
-        - vrf: default
-
-anta.tests.interfaces:
-  - VerifyInterfaceUtilization:
-  - VerifyLoopbackCount:
-      number: 3
-
 anta.tests.system:
   - VerifyReloadCause:
   - VerifyNTP:
@@ -83,8 +69,8 @@ These will be used to log into devices and set output directories instead iof sp
 ```text
 #!/bin/zsh
 echo 'Creating default anta variables'
-export ANTA_USERNAME=admin
-export ANTA_PASSWORD=admin
+export ANTA_USERNAME=arista
+export ANTA_PASSWORD=$LABPASSPHRASE
 export ANTA_ENABLE=true
 
 export ANTA_INVENTORY=./inventory.yml
