@@ -34,3 +34,13 @@ anta.tests.mlag:
   - VerifyMlagStatus:
   - VerifyMlagInterfaces:
   - VerifyMlagConfigSanity:
+
+anta.tests.stp:
+  - VerifySTPBlockedPorts:
+  - VerifySTPMode:
+      mode: mstp
+      template_params:
+        - vlan: 10
+        - vlan: 20
+        - vlan: 30
+        - vlan: 40
