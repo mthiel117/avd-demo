@@ -1,0 +1,27 @@
+# Remove a device from provisioning
+# Post 2021.3.0 the device will be automatically re-registered and moved to the Undefined container
+- name: Remove device
+  hosts: cvp
+  connection: local
+  gather_facts: false
+
+  vars:
+    CVP_DEVICES:
+      - fqdn: s2-spine1
+        parentContainerName: ""
+      - fqdn: s2-spine2
+        parentContainerName: ""
+      - fqdn: s2-leaf1
+        parentContainerName: ""
+      - fqdn: s2-leaf2
+        parentContainerName: ""
+      - fqdn: s2-leaf3
+        parentContainerName: ""
+      - fqdn: s2-leaf4
+        parentContainerName: ""
+
+  tasks:
+    - name: remove device
+      arista.cvp.cv_device_v3:
+          devices: '{{CVP_DEVICES}}'
+          state: provisioning_reset
