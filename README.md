@@ -72,6 +72,13 @@ Show nodes moved to new containers and have configlets attached.
 
 ## Reset Lab - Move Site 2 nodes to undefined container
 
+Use this playbook to reset Site 2 nodes tp iundefined container before doing a demo.  Need to also cleanup Containers in CVP.
+
 ```bash
 ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
 ```
+## Arista Network Testing Automation (ANTA) Framework
+
+Run some network tests against the ATD Lab nodes.
+
+Go [here](anta/README.md).
