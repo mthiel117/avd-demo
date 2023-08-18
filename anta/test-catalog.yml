@@ -11,20 +11,13 @@ anta.tests.software:
         - v1.22.1
         - v1.25.1
         - v1.27.0
+
 anta.tests.configuration:
   - VerifyZeroTouch: # Verifies ZeroTouch is disabled.
   - VerifyRunningConfigDiffs:
 
-# anta.tests.routing.bgp:
-#   - VerifyBGPIPv4UnicastCount:
-#       number: 1
-#       template_params:
-#         - vrf: default
-
-# anta.tests.interfaces:
-#   - VerifyInterfaceUtilization:
-#   - VerifyLoopbackCount:
-#       number: 3
+anta.tests.interfaces:
+  - VerifySVI:
 
 anta.tests.system:
   - VerifyReloadCause:
@@ -37,10 +30,10 @@ anta.tests.mlag:
 
 anta.tests.stp:
   - VerifySTPBlockedPorts:
-  - VerifySTPMode:
-      mode: mstp
-      template_params:
-        - vlan: 10
-        - vlan: 20
-        - vlan: 30
-        - vlan: 40
+  # - VerifySTPMode:
+  #     mode: mstp
+  #     template_params:
+  #       - vlan: 10
+  #       - vlan: 20
+  #       - vlan: 30
+  #       - vlan: 40
