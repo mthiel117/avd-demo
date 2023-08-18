@@ -4,24 +4,27 @@ anta.tests.software:
         - 4.25.4M
         - 4.30.1F
         - '4.28.3M-28837868.4283M (engineering build)'
+        - 4.30.1F
+        - '4.30.1F-32315456.4301F (engineering build)'
   - VerifyTerminAttrVersion:
       versions:
         - v1.22.1
+        - v1.25.1
         - v1.27.0
 anta.tests.configuration:
   - VerifyZeroTouch: # Verifies ZeroTouch is disabled.
   - VerifyRunningConfigDiffs:
 
-anta.tests.routing.bgp:
-  - VerifyBGPIPv4UnicastCount:
-      number: 1
-      template_params:
-        - vrf: default
+# anta.tests.routing.bgp:
+#   - VerifyBGPIPv4UnicastCount:
+#       number: 1
+#       template_params:
+#         - vrf: default
 
-anta.tests.interfaces:
-  - VerifyInterfaceUtilization:
-  - VerifyLoopbackCount:
-      number: 3
+# anta.tests.interfaces:
+#   - VerifyInterfaceUtilization:
+#   - VerifyLoopbackCount:
+#       number: 3
 
 anta.tests.system:
   - VerifyReloadCause:

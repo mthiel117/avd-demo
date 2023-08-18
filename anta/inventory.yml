@@ -1,8 +1,45 @@
 anta_inventory:
   hosts:
-  - host: 172.31.0.30
-    name: EOS20
-    tags: ['fabric', 'spine', 'lab']
-  - host: 172.31.0.31
-    name: EOS21
-    tags: ['fabric', 'spine', 'lab']
+##########################################
+# ATD Site 1 Spine and Leafs
+##########################################
+  - host: 192.168.0.10
+    name: s1-spine1
+    tags: ['fabric', 'spine']
+  - host: 192.168.0.11
+    name: s1-spine2
+    tags: ['fabric', 'spine']
+  - host: 192.168.0.12
+    name: s1-leaf1
+    tags: ['fabric', 'leaf']
+  - host: 192.168.0.13
+    name: s1-leaf2
+    tags: ['fabric', 'leaf']
+  - host: 192.168.0.14
+    name: s1-leaf3
+    tags: ['fabric', 'leaf']
+  - host: 192.168.0.15
+    name: s1-leaf4
+    tags: ['fabric', 'leaf']
+
+##########################################
+# ATD Site 2 Spine and Leafs
+##########################################
+  - host: 192.168.0.20
+    name: s2-spine1
+    tags: ['fabric', 'spine']
+  - host: 192.168.0.21
+    name: s2-spine2
+    tags: ['fabric', 'spine']
+  - host: 192.168.0.22
+    name: s2-leaf1
+    tags: ['fabric', 'leaf']
+  - host: 192.168.0.23
+    name: s2-leaf2
+    tags: ['fabric', 'leaf']
+  - host: 192.168.0.24
+    name: s2-leaf3
+    tags: ['fabric', 'leaf']
+  - host: 192.168.0.25
+    name: s2-leaf4
+    tags: ['fabric', 'leaf']
