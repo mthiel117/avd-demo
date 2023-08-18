@@ -14,7 +14,7 @@ Clone my Forked Repo to ATD Environment
 
 ```bash
 cd labfiles
-git clone https://github.com/mthiel117/ci-workshops-avd.git
+git clone https://github.com/mthiel117/avd-demo.git
 ```
 
 ```bash
