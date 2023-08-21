@@ -42,13 +42,13 @@ make build-site-1
 ```
 
 ```bash
-# Deploy Site 1 via CVP
-ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
+# Move Site 2 Devices to Undefined Container
+ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
 ```
 
 ```bash
-# Move Site 2 Devices to Undefined Container
-ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
+# Deploy Site 1 via CVP
+ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
 ```
 
 ## OneLine Script to Prep Lab for Demo
@@ -75,15 +75,15 @@ make preplab
 
 make build-site-1
 
-ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
-
 # Move Site 2 Devices to Undefined Container
 ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
+
+ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
 ```
 
 ### Step #2
 
-Execute Tasks via CVP Change Control
+Execute Site 1 Tasks via CVP Change Control
 
 Lab Demo prep complete!!! Time to show off the goodness of AVD.
 
