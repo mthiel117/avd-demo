@@ -81,10 +81,6 @@ ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
 ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
 ```
 
-### Step #2
-
-Execute Site 1 Tasks via CVP Change Control
-
 Lab Demo prep complete!!! Time to show off the goodness of AVD.
 
 ## Demo - Steps Build configs and deploy via CVP
