@@ -8,9 +8,11 @@ Using the Dual DC ATD Lab, demonstrate how AVD is used to build Site 2 L2LS DC. 
 
 ## Demo Prep Site 1 and WAN/Hosts
 
-Start a Fresh Dual DC ATD Lab
+Start a new Dual DC ATD Lab and build out Site 1 with the following steps
 
-Clone Demo Repo to ATD Environment
+### Step #1
+
+From the Programmability IDE
 
 ```bash
 cd labfiles
@@ -35,24 +37,66 @@ export LABPASSPHRASE=`cat /home/coder/.config/code-server/config.yaml| grep "pas
 ```
 
 ```bash
+# Configures Core, Border, and Host nodes
 make preplab
 ```
 
 ```bash
+# Build Site 1 Full Configs
 make build-site-1
 ```
 
 ```bash
+# Deploy Site 1 via CVP
 ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
 ```
 
-## Execute Tasks via CC
+## OneLine Script to Prep Lab for Demo
+
+Ensure that CVP has full started before running steps below.
+
+```bash
+cd labfiles
+git clone https://github.com/mthiel117/avd-demo.git
+cd avd-demo
+
+git config --global user.name "Mark Thiel"
+git config --global user.email "mthiel117@gmail.com"
+
+ansible-galaxy collection install -r requirements.yml
+export ARISTA_AVD_DIR=$(ansible-galaxy collection list arista.avd --format yaml | head -1 | cut -d: -f1)
+pip3 config set global.disable-pip-version-check true
+pip3 install -r ${ARISTA_AVD_DIR}/arista/avd/requirements.txt
+
+export LABPASSPHRASE=`cat /home/coder/.config/code-server/config.yaml| grep "password:" | awk '{print $2}'`
+
+make preplab
+
+make build-site-1
+
+ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
+```
+
+### Step #2
+
+Execute Tasks via CVP Change Control
 
 Lab Demo prep complete!!! Time to show off the goodness of AVD.
 
 ## Demo - Steps Build configs and deploy via CVP
 
+Now with the Lab prepped with Site 1 and Core WAN, we can build out Site 2 for the demo.
+
+### Step #1
+
 Uncomment Site-2 Vars
+
+  - SITE2_FABRIC_PORTS.yml
+  - SITE2_FABRIC_SERVICES.yml
+
+### Step #2
+
+Build Site 2 Configs & Docs
 
 ```bash
 make build-site-2
@@ -60,24 +104,48 @@ make build-site-2
 
 Show updated configs and documentation
 
+### Step #3
+
 ```bash
 ansible-playbook playbooks/cvp2.yml -i sites/site_2/inventory.yml
 ```
 
 Watch tasks and containers get built in CVP
 
-Execute Tasks via CC.
+### Step #4
 
-Show nodes moved to new containers and have configlets attached.
+Create Change Control to execute Tasks.
 
-## Reset Lab - Move Site 2 nodes to undefined container
+Run some watchg commands to show live changes to the nodes.
 
-Use this playbook to reset Site 2 nodes tp iundefined container before doing a demo.  Need to also cleanup Containers in CVP.
+Example: s2-spine1
+
+```bash
+watch show ip int br
+```
+
+*Show nodes moved to new containers and have configlets attached.*
+
+### Step #5
+
+Show traffic between Site 1 and Site 2.
+
+From: s1-host1 ping s2-host1
+
+```bash
+ping 10.30.30.100
+```
+
+## Cleanup & Reset Lab - Move Site 2 nodes to undefined container
+
+Use this playbook to reset Site 2 nodes t undefined container before doing a demo.  Need to also cleanup Containers in CVP.
 
 ```bash
 ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
 ```
 ## Arista Network Testing Automation (ANTA) Framework
+
+**BONUS Material**
 
 Run some network tests against the ATD Lab nodes.
 
