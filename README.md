@@ -15,7 +15,7 @@ Start a new Dual DC ATD Lab and build out Site 1 with the following steps
 From the Programmability IDE
 
 ```bash
-cd labfiles
+cd /home/coder/project/labfiles
 git clone https://github.com/mthiel117/avd-demo.git
 cd avd-demo
 ```
@@ -56,7 +56,7 @@ ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
 Ensure that CVP has full started before running steps below.
 
 ```bash
-cd labfiles
+cd /home/coder/project/labfiles
 git clone https://github.com/mthiel117/avd-demo.git
 cd avd-demo
 
