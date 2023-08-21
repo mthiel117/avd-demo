@@ -17,3 +17,4 @@
         container_root: 'SITE1_FABRIC'
         configlets_prefix: 'AVD'
         state: present
+        execute_tasks: true
