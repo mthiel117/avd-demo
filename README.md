@@ -21,11 +21,6 @@ cd avd-demo
 ```
 
 ```bash
-git config --global user.name "Mark Thiel"
-git config --global user.email "mthiel117@gmail.com"
-```
-
-```bash
 ansible-galaxy collection install -r requirements.yml
 export ARISTA_AVD_DIR=$(ansible-galaxy collection list arista.avd --format yaml | head -1 | cut -d: -f1)
 pip3 config set global.disable-pip-version-check true
@@ -63,9 +58,6 @@ Ensure that CVP has full started before running steps below.
 cd /home/coder/project/labfiles
 git clone https://github.com/mthiel117/avd-demo.git
 cd avd-demo
-
-git config --global user.name "Mark Thiel"
-git config --global user.email "mthiel117@gmail.com"
 
 ansible-galaxy collection install -r requirements.yml
 export ARISTA_AVD_DIR=$(ansible-galaxy collection list arista.avd --format yaml | head -1 | cut -d: -f1)
