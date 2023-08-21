@@ -55,6 +55,10 @@ ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
 
 Ensure that CVP has full started before running steps below.
 
+>**CVP 2023.1.1 is currently UP**
+>
+>No pending tasks in CVP.
+
 ```bash
 cd /home/coder/project/labfiles
 git clone https://github.com/mthiel117/avd-demo.git
