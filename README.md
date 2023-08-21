@@ -107,7 +107,7 @@ Show updated configs and documentation
 ### Step #3
 
 ```bash
-ansible-playbook playbooks/cvp2.yml -i sites/site_2/inventory.yml
+make cvp-site-2
 ```
 
 Watch tasks and containers get built in CVP
