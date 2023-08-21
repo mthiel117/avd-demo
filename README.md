@@ -46,6 +46,11 @@ make build-site-1
 ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
 ```
 
+```bash
+# Move Site 2 Devices to Undefined Container
+ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
+```
+
 ## OneLine Script to Prep Lab for Demo
 
 Ensure that CVP has full started before running steps below.
@@ -71,6 +76,9 @@ make preplab
 make build-site-1
 
 ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
+
+# Move Site 2 Devices to Undefined Container
+ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
 ```
 
 ### Step #2
