@@ -8,7 +8,9 @@ Using the Dual DC ATD Lab, demonstrate how AVD is used to build Site 2 L2LS DC. 
 
 ## Demo Prep Site 1 and WAN/Hosts
 
-Start a new Dual DC ATD Lab and build out Site 1 with the following steps
+Start a new Dual DC ATD Lab and build out Site 1 with the following steps.
+
+[https://testdrive.arista.com/](https://testdrive.arista.com/)
 
 ### Step #1
 
