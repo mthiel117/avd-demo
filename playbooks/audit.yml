@@ -1,0 +1,19 @@
+---
+
+- name: Backup Config of each device
+  hosts: "{{ target_hosts }}"
+  gather_facts: false
+
+  tasks:
+
+    - name: Import Global Vars
+      ansible.builtin.include_vars: "{{ item }}"
+      with_items:
+        - "../global_vars/global_dc_vars.yml"
+
+    - name: Backup Switch Config
+      arista.eos.eos_config:
+        backup: yes
+        backup_options:
+          dir_path: ansible_config_backups
+          filename: '{{inventory_hostname}}.txt'
