@@ -1,4 +1,4 @@
-# Arista CI Workshops
+# ATD - AVD and CVP Demo
 
 ## **ATD Dual Datacenter Topology**
 
