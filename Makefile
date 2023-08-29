@@ -50,6 +50,10 @@ cvp-site-2: ## Deploy Configs via eAPI
 backup-site-2: ## Backup Configs
 	ansible-playbook playbooks/audit.yml -i sites/site_2/inventory.yml -e "target_hosts=SITE2_FABRIC"
 
+.PHONY: reset-site-2
+reset-site-2: ## Backup Configs
+	ansible-playbook playbooks/reset-lab.yml -i sites/site_2/inventory.yml
+
 ########################################################
 # WAN & Hosts - Lab Prep
 ########################################################
