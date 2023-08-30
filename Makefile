@@ -3,6 +3,15 @@ help: ## Display help message
 	@grep -E '^[0-9a-zA-Z_-]+\.*[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 ########################################################
+# Utility Commands
+########################################################
+
+.PHONY: backups
+backups: ## Backup Configs from Site 1 and Site 2
+	ansible-playbook playbooks/audit.yml -i sites/site_1/inventory.yml -e "target_hosts=SITE1_FABRIC"
+	ansible-playbook playbooks/audit.yml -i sites/site_2/inventory.yml -e "target_hosts=SITE2_FABRIC"
+
+########################################################
 # Site 1
 ########################################################
 
@@ -21,10 +30,6 @@ deploy-site-1: ## Deploy Configs via eAPI
 .PHONY: cvp-site-1
 cvp-site-1: ## Deploy Configs via eAPI
 	ansible-playbook playbooks/cvp1.yml -i sites/site_1/inventory.yml
-
-.PHONY: backup-site-1
-backup-site-1: ## Backup Configs
-	ansible-playbook playbooks/audit.yml -i sites/site_1/inventory.yml -e "target_hosts=SITE1_FABRIC"
 
 ########################################################
 # Site 2
@@ -45,10 +50,6 @@ deploy-site-2: ## Deploy Configs via eAPI
 .PHONY: cvp-site-2
 cvp-site-2: ## Deploy Configs via eAPI
 	ansible-playbook playbooks/cvp2.yml -i sites/site_2/inventory.yml
-
-.PHONY: backup-site-2
-backup-site-2: ## Backup Configs
-	ansible-playbook playbooks/audit.yml -i sites/site_2/inventory.yml -e "target_hosts=SITE2_FABRIC"
 
 .PHONY: reset-site-2
 reset-site-2: ## Backup Configs
